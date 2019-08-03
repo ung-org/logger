@@ -25,7 +25,6 @@
 #define _XOPEN_SOURCE 700
 #include <limits.h>
 #include <locale.h>
-#include <stdlib.h>
 #include <string.h>
 #include <syslog.h>
 #include <unistd.h>
