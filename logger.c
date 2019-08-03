@@ -24,31 +24,30 @@
 
 // GNU libc unsets ARG_MAX
 #ifndef ARG_MAX
-# define ARG_MAX _POSIX_ARG_MAX
+#define ARG_MAX _POSIX_ARG_MAX
 #endif
 
 const char *logger_desc = "log messages";
-const char *logger_inv  = "logger string...";
+const char *logger_inv = "logger string...";
 
-int
-main (int argc, char **argv)
+int main(int argc, char **argv)
 {
- char msg[ARG_MAX];
- int i = 1;
+	char msg[ARG_MAX];
+	int i = 1;
 
- if (argc < 2)
-   return 1;
+	if (argc < 2)
+		return 1;
 
- memset (msg, 0, ARG_MAX);
+	memset(msg, 0, ARG_MAX);
 
- while (i < argc) {
-   strcat (msg, argv[i]);
-   if (i < argc)
-     strcat (msg ," ");
-   i++;
- }
+	while (i < argc) {
+		strcat(msg, argv[i]);
+		if (i < argc)
+			strcat(msg, " ");
+		i++;
+	}
 
- syslog (LOG_USER, "%s", msg);
+	syslog(LOG_USER, "%s", msg);
 
- return 0;
+	return 0;
 }
